@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
-import { QUESTIONS, type OnboardingAnswers } from "@/lib/questions";
+import { QUESTIONS, type OnboardingAnswers } from "@/src/lib/questions";
 import { QuestionCard } from "./QuestionCard";
 
 export function OnboardingFlow({ onComplete }: { onComplete: (a: OnboardingAnswers) => void }) {

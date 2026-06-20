@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Sparkles, Check, AlertCircle, RefreshCw } from "lucide-react";
-import type { OnboardingAnswers } from "@/lib/questions";
-import type { TenantConfig } from "@/lib/config-schema/schema";
+import type { OnboardingAnswers } from "@/src/lib/questions";
+import type { TenantConfig } from "@/src/lib/config-schema/schema";
+import { MOCK_CONFIG } from "@/src/lib/mock-config";
 
 const STEPS = [
   "Analyzing your workflow...", "Designing your stages...", "Writing your checklists...",
@@ -20,13 +21,13 @@ export function GeneratingScreen({
     const ticker = setInterval(() => setStepIdx((i) => Math.min(i + 1, STEPS.length - 1)), 900);
     (async () => {
       try {
-        const res = await fetch("/api/generate-config", {
-          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(answers),
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error ?? "Generation failed");
-        setDone(true);
-        setTimeout(() => onDone(data.config as TenantConfig), 600);
+        // const res = await fetch("/api/generate-config", {
+        //   method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(answers),
+        // });
+        // const data = await res.json();
+        // if (!res.ok) throw new Error(data.error ?? "Generation failed");
+        // setDone(true);
+       setTimeout(() => onDone(MOCK_CONFIG), 600);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Something went wrong");
       } finally { clearInterval(ticker); }

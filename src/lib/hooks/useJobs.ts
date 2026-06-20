@@ -1,6 +1,6 @@
 "use client";
-import { createClient } from "@/lib/supabase/client";
-import type { Job, TenantConfig } from "@/lib/config-schema/schema";
+import { createClient } from "@/src/lib/supabase/client";
+import type { Job, TenantConfig } from "@/src/lib/config-schema/schema";
 
 // Job mutations. Skeleton: optimistic update + persist to Supabase.
 export function useJobs(

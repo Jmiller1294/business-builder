@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
-import { useBoard } from "@/lib/hooks/useBoard";
-import { useJobs } from "@/lib/hooks/useJobs";
-import { Sidebar } from "@/components/shared/Sidebar";
+import { useBoard } from "@/src/lib/hooks/useBoard";
+import { useJobs } from "@/src/lib/hooks/useJobs";
+import { Sidebar } from "@/src/app/components/shared/Sidebar";
 import { BoardView } from "@/components/board/BoardView";
 import { JobDetailPanel } from "@/components/board/JobDetailPanel";
-import type { Job } from "@/lib/config-schema/schema";
+import type { Job } from "@/src/lib/config-schema/schema";
+import { Board } from "@/src/app/components/board/Board";
 
 export default function BoardPage() {
   const { config, jobs, setJobs, loading } = useBoard();
@@ -19,21 +20,14 @@ export default function BoardPage() {
     );
 
   return (
-    <div className="flex h-screen">
-      <Sidebar config={config} active="board" />
-      <main className="flex-1 overflow-hidden flex">
-        <BoardView config={config} jobs={jobs} onSelect={setSelected} selectedId={selected?.id} />
-        {selected && (
-          <JobDetailPanel
-            job={selected}
-            config={config}
-            onClose={() => setSelected(null)}
-            onAdvance={() => advanceStage(selected)}
-            onToggleAssignee={(m) => toggleAssignee(selected, m)}
-          />
-        )}
-      </main>
-    </div>
+   <Board
+    config={config}
+    jobs={jobs}
+    selected={selected}
+    onSelect={setSelected}
+    onAdvance={advanceStage}
+    onToggleAssignee={toggleAssignee}
+   />
   );
 }
 

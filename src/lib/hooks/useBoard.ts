@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
-import type { TenantConfig, Job } from "@/lib/config-schema/schema";
+import { createClient } from "@/src/lib/supabase/client";
+import type { TenantConfig, Job } from "@/src/lib/config-schema/schema";
 
 // Loads the current business's config + jobs from Supabase.
 // Skeleton: wire the queries to your actual tables/columns.

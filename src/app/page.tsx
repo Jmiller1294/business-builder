@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-import type { OnboardingAnswers } from "@/lib/questions";
-import type { TenantConfig } from "@/lib/config-schema/schema";
-import { OnboardingFlow } from "@/components/onboarding/OnboardingFlow";
-import { GeneratingScreen } from "@/components/onboarding/GeneratingScreen";
+import type { OnboardingAnswers } from "@/src/lib/questions";
+import type { TenantConfig } from "@/src/lib/config-schema/schema";
+import { OnboardingFlow } from "@/src/app/components/onboarding/OnboardingFlow";
+import { GeneratingScreen } from "@/src/app/components/onboarding/GeneratingScreen";
+import { Board } from "@/src/app/components/board/Board";
 
 type Phase = "onboarding" | "generating" | "board";
 

@@ -1,4 +1,4 @@
-import type { TeamMember } from "@/lib/config-schema/schema";
+import type { TeamMember } from "@/src/lib/config-schema/schema";
 
 export function Avatar({
   member,

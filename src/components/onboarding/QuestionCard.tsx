@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
-import type { Question } from "@/lib/questions";
+import type { Question } from "@/src/lib/questions";
 
 export function QuestionCard({
   question, value, onSubmit, onBack, canGoBack, isLast,
