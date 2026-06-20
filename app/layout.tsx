@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OpBase",
-  description: "An operations board built for your business — in one step.",
+  title: "OpBase — AI Config Engine",
+  description: "Answer five questions, get a board built for your business.",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-ink text-chalk">{children}</body>
     </html>
   );
 }
