@@ -7,7 +7,7 @@ export default function LoginButton() {
 
   return (
     <button
-      onClick={() => router.push("/login")}
+      onClick={() => router.push("/dashboard")}
       className="text-[13.5px] text-mist no-underline"
     >
       Login
