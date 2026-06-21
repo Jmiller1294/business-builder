@@ -1,7 +1,57 @@
 @import "tailwindcss";
 
-:root { color-scheme: dark; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+@theme {
+  /* Dark theme */
+  --color-ink: #0E1525;
+  --color-ink2: #0A0F1C;
+  --color-panel: #141C30;
+  --color-panel2: #1B2540;
+  --color-line: #243150;
 
-@keyframes pulse-dot { 0%, 100% { opacity: 1 } 50% { opacity: 0.4 } }
-.animate-pulse-dot { animation: pulse-dot 1s infinite; }
+  /* Brand */
+  --color-brand: #4F46E5;
+  --color-brand2: #6366F1;
+  --color-violet: #7C3AED;
+
+  /* Text */
+  --color-chalk: #F2F5FF;
+  --color-mist: #8A97B8;
+  --color-dim: #5A678A;
+
+  /* Light theme */
+  --color-paper: #F7F9FC;
+  --color-edge: #E6EBF2;
+  --color-head: #0F172A;
+  --color-copy: #475569;
+  --color-faint: #94A3B8;
+
+  /* Font */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-chalk);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*:focus-visible {
+  outline: 2px solid #6366F1;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

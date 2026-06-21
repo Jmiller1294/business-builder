@@ -1,57 +1,31 @@
-"use client";
-import { useState } from "react";
-import type { OnboardingAnswers } from "@/src/lib/questions";
-import type { TenantConfig } from "@/src/lib/config-schema/schema";
-import { OnboardingFlow } from "@/src/app/components/onboarding/OnboardingFlow";
-import { GeneratingScreen } from "@/src/app/components/onboarding/GeneratingScreen";
-import { Board } from "@/src/app/components/board/Board";
+import { Nav } from "@/components/landing/Nav";
+import { Hero } from "@/components/landing/Hero";
+import { TrustStrip } from "@/components/landing/TrustStrip";
+import { Differentiator } from "@/components/landing/Differentiator";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { Verticals } from "@/components/landing/Verticals";
+import { Benefits } from "@/components/landing/Benefits";
+import { SocialProof } from "@/components/landing/SocialProof";
+import { Pricing } from "@/components/landing/Pricing";
+import { FAQ } from "@/components/landing/FAQ";
+import { FinalCTA } from "@/components/landing/FinalCTA";
+import { Footer } from "@/components/landing/Footer";
 
-type Phase = "onboarding" | "generating" | "board";
-
-// In the original JSX this was the <App> component holding `screen` state.
-// Same idea here: one client page owns the phase and the generated config.
-// The only thing that left is the Claude call -> /api/generate-config.
-export default function Page() {
-  const [phase, setPhase] = useState<Phase>("onboarding");
-  const [answers, setAnswers] = useState<OnboardingAnswers | null>(null);
-  const [config, setConfig] = useState<TenantConfig | null>(null);
-
-  if (phase === "onboarding") {
-    return (
-      <OnboardingFlow
-        onComplete={(a) => {
-          setAnswers(a);
-          setPhase("generating");
-        }}
-      />
-    );
-  }
-
-  if (phase === "generating" && answers) {
-    return (
-      <GeneratingScreen
-        answers={answers}
-        onDone={(c) => {
-          setConfig(c);
-          setPhase("board");
-        }}
-        onError={() => setPhase("onboarding")}
-      />
-    );
-  }
-
-  if (phase === "board" && config) {
-    return (
-      <Board
-        config={config}
-        onReset={() => {
-          setConfig(null);
-          setAnswers(null);
-          setPhase("onboarding");
-        }}
-      />
-    );
-  }
-
-  return null;
+export default function LandingPage() {
+  return (
+    <main className="bg-ink text-chalk">
+      <Nav />
+      <Hero />
+      <TrustStrip />
+      <Differentiator />
+      <HowItWorks />
+      <Verticals />
+      <Benefits />
+      <SocialProof />
+      <Pricing />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
+    </main>
+  );
 }
